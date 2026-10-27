@@ -1,0 +1,6 @@
+*.cwl
+*.json
+*.pdf
+*.sty
+
+build/
