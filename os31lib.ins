@@ -1,0 +1,34 @@
+%% os31lib.ins
+%%
+
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+
+\usedir{tex/latex/os31lib}
+
+\usepreamble\empty
+\usepostamble\empty
+\generate{\file{leta_fix.tex}{\from{os31lib.dtx}{letafix}}}
+
+\preamble
+This is a generated file.
+Copyright (C) 2026 by Andrew Langan alangan444@icloud.com
+\endpreamble
+
+\generate{\file{os31lib.sty}{\from{os31lib.dtx}{os31lib}}}
+
+
+\Msg{*********************************************************}
+\Msg{*}
+\Msg{* To finish the installation you have to move the}
+\Msg{* following file into a directory searched by TeX:}
+\Msg{*}
+\Msg{* \space\space os31lib.sty}
+\Msg{*}
+\Msg{* To produce the documentation run the file}
+\Msg{* os31lib.dtx through LaTeX.}
+\Msg{*}
+\Msg{*********************************************************}
+
+\endbatchfile

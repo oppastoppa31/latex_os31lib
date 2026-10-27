@@ -1,0 +1,1658 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2026 by Andrew Langan (alangan444@icloud.com)
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+% \fi
+%
+\ProvidesFile{os31lib.dtx}
+\documentclass{ltxdoc}
+\usepackage{bookmark}
+\usepackage{dtxdescribe}
+\usepackage{os31lib}
+\usepackage{lmodern}
+
+\PassOptionsToPackage{old}{doc}
+
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+
+\begin{document}
+  \DocInput{os31lib.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+
+% \iffalse
+%</driver>
+% \fi
+%
+% \changes{v0.0.2}{2026/10/27}{Added CWL and JSON files}
+% \changes{v0.0.1}{2026/10/26}{Converted to DTX file}
+%
+% \DoNotIndex{
+%   \newcommand,
+%   \newenvironment,
+%   \RequirePackage,
+%   \DeclarePairedDelimiter
+% }
+%
+% \title{The \textsf{os31lib} package}
+% \author{Andrew Langan}
+% \date{\today}
+% \maketitle
+%
+% \section{Introduction}
+%
+% This package is designed to make writing homework assignments in LaTeX easier.
+% It provides a number of useful macros and environments for formatting
+% problems, solutions, and mathematical expressions.
+%
+% \section{Usage}
+%
+% To use this package, include the following line in your preamble:
+% \begin{verbatim}
+%   \usepackage{os31lib}
+% \end{verbatim}
+%
+% \newpage
+% \section{Description}
+%
+% \subsection{Quantum Computing}
+%
+% \begin{description}
+% \ItemDescribeMacro{\bra}{\marg{value}}
+%
+% Creates a bra vector in Dirac notation:
+% \[
+%   \langle \text{value} \|
+% \]
+%
+% \ItemDescribeMacro{\ket}{\marg{value}}
+%
+% Creates a ket vector in Dirac notation:
+% \[
+%   \| \text{value} \rangle
+% \]
+%
+% \ItemDescribeArgument{value}
+% The value to be enclosed in the bra or ket vector.
+%
+% \ItemDescribeMacro{\braket}{\marg{left} \marg{right}}
+%
+% Creates a bra-ket vector in Dirac notation:
+% \[
+%   \langle \text{left} \| \text{right} \rangle
+% \]
+%
+% \ItemDescribeArgument{left}
+% The value to be enclosed in the bra vector.
+%
+% \ItemDescribeArgument{right}
+% The value to be enclosed in the ket vector.
+% \end{description}
+%
+% \begin{description}
+% \ItemDescribeMacro{\cplot}{\marg{x-max} \marg{real} \marg{imaginary} \marg{scale}}
+%
+% Plots a complex number on the complex plane using TikZ.
+%
+% \ItemDescribeArgument{x-max}
+% The maximum value of the x-axis.
+%
+% \ItemDescribeArgument{real}
+% The real part of the complex number.
+%
+% \ItemDescribeArgument{imaginary}
+% The imaginary part of the complex number.
+%
+% \ItemDescribeArgument{scale}
+% The scale of the plot.
+% \end{description}
+%
+% \newpage
+% \subsection{Enclosed Blocks}
+%
+% \begin{description}
+% \ItemDescribeMacro{\bl}{\marg{block}}
+%
+% Creates a block of text enclosed in curly braces.
+%
+% \ItemDescribeMacro{\br}{\marg{block}}
+%
+% Creates a block of text enclosed in square brackets.
+%
+% \ItemDescribeMacro{\pr}{\marg{block}}
+%
+% Creates a block of text enclosed in parentheses.
+%
+% \ItemDescribeMacro{\abs}{\marg{block}}
+%
+% Creates a block of text enclosed in absolute value bars.
+%
+% \ItemDescribeArgument{block}
+% The block of text to be enclosed.
+% \end{description}
+%
+% \subsection{Comparison Operators}
+%
+% \begin{description}
+% \ItemDescribeMacro{\eq}
+%
+% Represents the equality symbol: `\(=\)'.
+%
+% \ItemDescribeMacro{\gt}
+%
+% Represents the greater than symbol: `\(>\)'.
+%
+% \ItemDescribeMacro{\lt}
+%
+% Represents the less than symbol: `\(<\)'.
+%
+% \ItemDescribeMacro{\minus}
+%
+% Represents the minus symbol: `\(-\)'.
+%
+% \ItemDescribeMacro{\plus}
+%
+% Represents the plus symbol: `\(+\)'.
+% \end{description}
+%
+% \newpage
+% \subsection{Number Sets}
+%
+% \begin{description}
+% \ItemDescribeMacro{\C}
+%
+% Represents the set of complex numbers: `\(\mathbb{C}\)'.
+%
+% \ItemDescribeMacro{\N}
+%
+% Represents the set of natural numbers: `\(\mathbb{N}\)'.
+%
+% \ItemDescribeMacro{\Q}
+%
+% Represents the set of rational numbers: `\(\mathbb{Q}\)'.
+%
+% \ItemDescribeMacro{\R}
+%
+% Represents the set of real numbers: `\(\mathbb{R}\)'.
+%
+% \ItemDescribeMacro{\W}
+%
+% Represents the set of whole numbers: `\(\omega\)'.
+%
+% \ItemDescribeMacro{\Z}
+%
+% Represents the set of integers: `\(\mathbb{Z}\)'.
+% \end{description}
+%
+% \subsection{Let Statements}
+%
+% \begin{description}
+% \ItemDescribeMacro{\LET}{\marg{variable} \marg{value}}
+%
+% Represents a let statement in math mode.
+%
+% \ItemDescribeMacro{\LETA}{\marg{variable} \marg{value}}
+%
+% Represents a let statement in math mode with alignment.
+%
+% \ItemDescribeArgument{variable}
+% The variable being defined in the let statement.
+%
+% \ItemDescribeArgument{value}
+% The value being assigned to the variable in the let statement.
+% \end{description}
+%
+% \newpage
+% \subsection{Set Membership}
+%
+% \begin{description}
+% \ItemDescribeMacro{\inn}{\marg{variable}}
+%
+% Represents a variable in the set of natural numbers:
+% \[
+%   \text{variable} \in \mathbb{N}
+% \]
+%
+% \ItemDescribeMacro{\ip}{\marg{variable}}
+%
+% Represents a variable in the set of prime numbers:
+% \[
+%   \text{variable} \in \mathbb{P}
+% \]
+%
+% \ItemDescribeMacro{\iq}{\marg{variable}}
+%
+% Represents a variable in the set of rational numbers:
+% \[
+%   \text{variable} \in \mathbb{Q}
+% \]
+%
+% \ItemDescribeMacro{\ir}{\marg{variable}}
+%
+% Represents a variable in the set of real numbers:
+% \[
+%   \text{variable} \in \mathbb{R}
+% \]
+%
+% \ItemDescribeMacro{\iw}{\marg{variable}}
+%
+% Represents a variable in the set of whole numbers:
+% \[
+%   \text{variable} \in \omega
+% \]
+%
+% \ItemDescribeMacro{\iz}{\marg{variable}}
+%
+% Represents a variable in the set of integers:
+% \[
+%   \text{variable} \in \mathbb{Z}
+% \]
+%
+% \ItemDescribeArgument{variable}
+% The variable being checked for membership in the specified set.
+% \end{description}
+%
+% \newpage
+% \subsection{Set Non-Membership}
+%
+% \begin{description}
+% \ItemDescribeMacro{\nin}{\marg{variable}}
+%
+% Represents a variable not in the set of natural numbers:
+% \[
+%   \text{variable} \notin \mathbb{N}
+% \]
+%
+% \ItemDescribeMacro{\nip}{\marg{variable}}
+%
+% Represents a variable not in the set of prime numbers:
+% \[
+%   \text{variable} \notin \mathbb{P}
+% \]
+%
+% \ItemDescribeMacro{\niq}{\marg{variable}}
+%
+% Represents a variable not in the set of rational numbers:
+% \[
+%   \text{variable} \notin \mathbb{Q}
+% \]
+%
+% \ItemDescribeMacro{\nir}{\marg{variable}}
+%
+% Represents a variable not in the set of real numbers:
+% \[
+%   \text{variable} \notin \mathbb{R}
+% \]
+%
+% \ItemDescribeMacro{\niw}{\marg{variable}}
+%
+% Represents a variable not in the set of whole numbers:
+% \[
+%   \text{variable} \notin \omega
+% \]
+%
+% \ItemDescribeMacro{\niz}{\marg{variable}}
+%
+% Represents a variable not in the set of integers:
+% \[
+%   \text{variable} \notin \mathbb{Z}
+% \]
+%
+% \ItemDescribeArgument{variable}
+% The variable being checked for non-membership in the specified set.
+% \end{description}
+%
+% \newpage
+% \subsection{Existential Quantifiers}
+%
+% \begin{description}
+% \ItemDescribeMacro{\ein}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable in the set of natural
+% numbers:
+% \[
+%   (\exists \text{ variable} \in \mathbb{N})
+% \]
+%
+% \ItemDescribeMacro{\eip}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable in the set of prime
+% numbers:
+% \[
+%   (\exists \text{ variable} \in \mathbb{P})
+% \]
+%
+% \ItemDescribeMacro{\eiq}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable in the set of rational
+% numbers:
+% \[
+%   (\exists \text{ variable} \in \mathbb{Q})
+% \]
+%
+% \ItemDescribeMacro{\eir}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable in the set of real
+% numbers:
+% \[
+%   (\exists \text{ variable} \in \mathbb{R})
+% \]
+%
+% \ItemDescribeMacro{\eiw}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable in the set of whole
+% numbers:
+% \[
+%   (\exists \text{ variable} \in \omega)
+% \]
+%
+% \ItemDescribeMacro{\eiz}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable in the set of integers:
+% \[
+%   (\exists \text{ variable} \in \mathbb{Z})
+% \]
+%
+% \ItemDescribeArgument{variable}
+% The variable being quantified in the specified set.
+% \end{description}
+%
+% \newpage
+% \subsection{Existential Quantifiers for Non-Membership}
+% \begin{description}
+% \ItemDescribeMacro{\nein}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable not in the set of natural
+% numbers:
+% \[
+%   (\exists \text{ variable} \notin \mathbb{N})
+% \]
+%
+% \ItemDescribeMacro{\neip}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable not in the set of prime
+% numbers:
+% \[
+%   (\exists \text{ variable} \notin \mathbb{P})
+% \]
+%
+% \ItemDescribeMacro{\neiq}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable not in the set of
+% rational numbers:
+% \[
+%   (\exists \text{ variable} \notin \mathbb{Q})
+% \]
+%
+% \ItemDescribeMacro{\neir}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable not in the set of real
+% numbers:
+% \[
+%   (\exists \text{ variable} \notin \mathbb{R})
+% \]
+%
+% \ItemDescribeMacro{\neiw}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable not in the set of whole
+% numbers:
+% \[
+%   (\exists \text{ variable} \notin \omega)
+% \]
+%
+% \ItemDescribeMacro{\neiz}{\marg{variable}}
+%
+% Represents the existential quantifier for a variable not in the set of
+% integers:
+% \[
+%   (\exists \text{ variable} \notin \mathbb{Z})
+% \]
+%
+% \ItemDescribeArgument{variable}
+% The variable being quantified in the specified set.
+% \end{description}
+%
+% \newpage
+% \subsection{Universal Quantifiers}
+%
+% \begin{description}
+% \ItemDescribeMacro{\ain}{\marg{variable}}
+%
+% Represents the universal quantifier for a variable in the set of natural
+% numbers:
+% \[
+%   (\forall \text{ variable} \in \mathbb{N})
+% \]
+%
+% \ItemDescribeMacro{\aip}{\marg{variable}}
+%
+% Represents the universal quantifier for a variable in the set of prime
+% numbers:
+% \[
+%   (\forall \text{ variable} \in \mathbb{P})
+% \]
+%
+% \ItemDescribeMacro{\aiq}{\marg{variable}}
+%
+% Represents the universal quantifier for a variable in the set of rational
+% numbers:
+% \[
+%   (\forall \text{ variable} \in \mathbb{Q})
+% \]
+%
+% \ItemDescribeMacro{\air}{\marg{variable}}
+%
+% Represents the universal quantifier for a variable in the set of real numbers:
+% \[
+%   (\forall \text{ variable} \in \mathbb{R})
+% \]
+% \ItemDescribeMacro{\aiw}{\marg{variable}}
+%
+% Represents the universal quantifier for a variable in the set of whole
+% numbers:
+% \[
+%   (\forall \text{ variable} \in \omega)
+% \]
+% \ItemDescribeMacro{\aiz}{\marg{variable}}
+%
+% Represents the universal quantifier for a variable in the set of integers:
+% \[
+%   (\forall \text{ variable} \in \mathbb{Z})
+% \]
+%
+% \ItemDescribeMacro{\nain}{\marg{variable}}
+%
+% Represents the universal quantifier for a variable not in the set of natural
+% numbers:
+% \[
+%   (\forall \text{ variable} \notin \mathbb{N})
+% \]
+%
+% \ItemDescribeArgument{variable}
+% The variable being quantified in the specified set.
+% \end{description}
+%
+%
+% \newpage
+% \subsection{Infinite Sums and Integrals}
+%
+% \begin{description}
+% \ItemDescribeMacro{\sumk}
+%
+% Represents the summation from \(k = 1\) to \(n\):
+% \[
+%   \sum\limits_{k = 1}^{n} \ldots
+% \]
+%
+% \ItemDescribeMacro{\sumkz}
+%
+% Represents the summation from \(k = 0\) to \(n\):
+% \[
+%   \sum\limits_{k = 0}^{n} \ldots
+% \]
+%
+% \ItemDescribeMacro{\sumn}
+%
+% Represents the summation from \(i = 1\) to \(n\):
+% \[
+%   \sum\limits_{i = 1}^{n} \ldots
+% \]
+%
+% \end{description}
+%
+% \begin{description}
+% \ItemDescribeMacro{\infint}{\marg{integrand}}
+%
+% Represents the integral from 0 to \(\infty\):
+% \[
+%   \int_{0}^{\infty} \text{integrand} \, dt
+% \]
+%
+% \ItemDescribeArgument{integrand}
+% The integrand of the integral.
+% \end{description}
+%
+% \begin{description}
+% \ItemDescribeMacro{\inflim}{\marg{block}}
+%
+% Represents the limit as \(x\) approaches infinity:
+% \[
+%   \lim_{n \to \infty}( \text{block} )
+% \]
+%
+% \ItemDescribeArgument{block}
+% The block of text to be evaluated in the limit.
+% \end{description}
+%
+% \newpage
+% \subsection{Telescoping Series}
+%
+% \begin{description}
+% \ItemDescribeMacro{\ts}{\marg{n}}
+%
+% Represents the summation of a telescoping series:
+% \[
+%   1^{n} + 2^{n} + \ldots + n^{n}
+% \]
+%
+% \ItemDescribeMacro{\ets}{\marg{n}}
+%
+% Represents the summation of an extended telescoping series:
+% \[
+%   1^{n} - 0^{n} + 2^{n} - 1^{n} + 3^{n} - 2^{n} + \ldots + n^{n} - (n-1)^{n}
+% \]
+%
+% \ItemDescribeArgument{n}
+% The exponent of the telescoping series.
+% \end{description}
+%
+% \subsection{Miscellaneous}
+%
+% \begin{description}
+% \ItemDescribeMacro{\nl}
+%
+% Inserts a new line in the document.
+% \end{description}
+%
+% \newpage
+% \subsection{Environments}
+%
+% \begin{description}
+% \ItemDescribeEnv{prob}{\oarg{title}}
+%
+% Environment for formatting a homework question. It automatically numbers the
+% problems, given an optional title.
+%
+% \ItemDescribeArgument[\prob]{title}
+% The optional title of the homework question.
+%
+% \ItemDescribeEnv{subprob}
+%
+% Environment for formatting a subproblem of a homework question. It
+% automatically numbers the sub-problems.
+%
+% \ItemDescribeEnv{subsubprob}
+%
+% Environment for formatting a sub-subproblem of a homework question. It
+% automatically numbers the sub-sub-problems.
+%
+% \ItemDescribeEnv{sol}
+%
+% Environment for formatting a solution to a homework question.
+%
+% \ItemDescribeEnv{indproof}{\marg{base case} \marg{assumption} \marg{inductive case}}
+%
+% Environment for formatting an inductive proof.
+%
+% \ItemDescribeArgument{base case}
+% The base case of the inductive proof.
+%
+% \ItemDescribeArgument{assumption}
+% The assumption of the inductive proof.
+%
+% \ItemDescribeArgument{inductive case}
+% The inductive case of the inductive proof.
+%
+% \ItemDescribeEnv{page}{\oarg{title}}
+%
+% Environment for formatting a page of a homework assignment. Takes up the
+% entire page.
+%
+% \ItemDescribeArgument[\page]{title}
+% The optional title of the homework assignment page.
+% \end{description}
+%
+% \newpage
+% \section{Implementation}
+%
+% \StopEventually{}
+%
+% \iffalse
+%<*os31lib>
+% \fi
+%
+%    \begin{macrocode}
+\ExplSyntaxOn
+
+\RequirePackage{amssymb, amsthm, amsmath, color}
+\RequirePackage{array}
+\RequirePackage{environ}
+\RequirePackage{etoolbox}
+\RequirePackage{float}
+\RequirePackage{graphics}
+\RequirePackage{graphicx}
+\RequirePackage{mathtools}
+\RequirePackage{subfigure}
+\RequirePackage{tikz}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{property}{Property}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}[conjecture]{Question}
+
+\newif\ifinsol
+\insolfalse
+
+\newcounter{prob}
+\newcounter{subprob}
+\newcounter{subsubprob}
+%    \end{macrocode}
+%
+% \iffalse
+% region Quantum Computing
+% \fi
+%
+%    \begin{macrocode}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{
+  #1 \, \delimsize\vert \, \mathopen{} #2
+} % chktex 21
+%    \end{macrocode}
+%
+% \begin{macro}{\cplot} \marg{x-max} \marg{real} \marg{imaginary} \marg{scale}
+%    \begin{macrocode}
+\newcommand{\cplot}[4]{
+  \begin{tikzpicture}[scale=#4]
+    \IfNoValueT{#1}{
+      \errmessage{The\space x-max\space of\space the\space complex\space
+        plane\space is\space not\space provided.}
+    }
+    \IfNoValueT{#2}{
+      \errmessage{The\space real\space part\space of\space the\space complex\space
+        number\space is\space not\space provided.}
+    }
+    \IfNoValueT{#3}{
+      \errmessage{The\space imaginary\space part\space of\space the\space
+         complex\space number\space is\space not\space provided.}
+    }
+    \IfNoValueT{#4}{
+      \errmessage{The\space scale\space of\space the\space complex\space
+        plane\space is\space not\space provided.}
+    }
+    \draw[gray!30,very\space thin] (-#1, -#1) grid (#1, #1);
+    \draw[->] (-#1, 0) -- (#1, 0) node[right] {\(Re(z)\)};
+    \draw[->] (0, -#1) -- (0, #1) node[above] {\(Im(z)\)};
+    \draw[->, thick, blue] (0, 0) -- (#2, #3);
+
+    \fill (#2, #3) circle (2pt);
+
+    \ifdim #2pt > 0pt
+      \def\anchorX{right}
+    \else
+      \def\anchorX{left}
+    \fi
+    \ifdim #3pt > 0pt
+      \def\anchorY{above}
+    \else
+      \def\anchorY{below}
+    \fi
+    \ifdim #3pt < 0pt
+      \def\ysign{}
+    \else
+      \def\ysign{+}
+    \fi
+
+    \node[\anchorY\space \anchorX] at (#2, #3)
+    {\(z = #2 \ysign #3 i\)};
+  \end{tikzpicture}
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Enclosed Blocks
+% \fi
+%
+% \begin{macro}{\bl} \marg{block}
+%    \begin{macrocode}
+\newcommand{\bl}[1]{
+  \left\{ #1 \right\} % chktex 21
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\br} \marg{block}
+%    \begin{macrocode}
+\newcommand{\br}[1]{
+  \left[ #1 \right]
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\pr} \marg{block}
+%    \begin{macrocode}
+\newcommand{\pr}[1]{
+  \left( #1 \right) % chktex 37
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\abs} \marg{block}
+%    \begin{macrocode}
+\newcommand{\abs}[1]{
+  \left\lvert #1 \right\rvert
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Comparison Operators
+% \fi
+%
+% \begin{macro}{\eq}
+%    \begin{macrocode}
+\newcommand{\eq}{=}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\gt}
+%    \begin{macrocode}
+\newcommand{\gt}{>}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\lt}
+%    \begin{macrocode}
+\newcommand{\lt}{<}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\minus}
+%    \begin{macrocode}
+\newcommand{\minus}{-}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\plus}
+%    \begin{macrocode}
+\newcommand{\plus}{+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Number Sets
+% \fi
+%
+% \begin{macro}{\C}
+%    \begin{macrocode}
+\newcommand{\C}{\mathbb{C}}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\N}
+%    \begin{macrocode}
+\newcommand{\N}{\mathbb{N}}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\Q}
+%    \begin{macrocode}
+\newcommand{\Q}{\mathbb{Q}}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\R}
+%    \begin{macrocode}
+\newcommand{\R}{\mathbb{R}}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\W}
+%    \begin{macrocode}
+\newcommand{\W}{\omega}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\Z}
+%    \begin{macrocode}
+\newcommand{\Z}{\mathbb{Z}}
+%    \end{macrocode}
+% \end{macro}
+
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Let Statements
+% \fi
+%
+% \begin{macro}{\LET} \marg{variable} \marg{value}
+%    \begin{macrocode}
+\newcommand{\LET}[2]{
+  \text{Let{\space}} #1 = #2
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\LETA} \marg{variable} \marg{value}
+%    \begin{macrocode}
+\newcommand{\LETA}[2]{
+  \text{Let{\space}} #1 & = #2
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Set Membership
+% \fi
+%
+% \begin{macro}{\inn} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\inn}[1]{
+  #1 \in \N
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ip} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\ip}[1]{
+  #1 \in \mathbb{P}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\iq} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\iq}[1]{
+  #1 \in \Q
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ir} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\ir}[1]{
+  #1 \in \R
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\iw} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\iw}[1]{
+  #1 \in \W
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\iz} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\iz}[1]{
+  #1 \in \Z
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\nin} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\nin}[1]{
+  #1 \notin \N
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\nip} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\nip}[1]{
+  #1 \notin \mathbb{P}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\niq} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\niq}[1]{
+  #1 \notin \Q
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\nir} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\nir}[1]{
+  #1 \notin \R
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\niw} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\niw}[1]{
+  #1 \notin \W
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\niz} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\niz}[1]{
+  #1 \notin \Z
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Quantifiers
+% \fi
+%
+% \begin{macro}{\ein} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\ein}[1]{
+  (\inn{\exists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ain} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\ain}[1]{
+  (\inn{\forall #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\eip} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\eip}[1]{
+  (\ip{\exists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\aip} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\aip}[1]{
+  (\ip{\forall #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\eiq} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\eiq}[1]{
+  (\iq{\exists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\aiq} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\aiq}[1]{
+  (\iq{\forall #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\eir} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\eir}[1]{
+  (\ir{\exists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\air} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\air}[1]{
+  (\ir{\forall #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\eiw} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\eiw}[1]{
+  (\iw{\exists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\aiw} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\aiw}[1]{
+  (\iw{\forall #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\eiz} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\eiz}[1]{
+  (\iz{\exists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\aiz} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\aiz}[1]{
+  (\iz{\forall #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\nain} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\nain}[1]{
+  (\inn{\forall #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\nein} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\nein}[1]{
+  (\inn{\nexists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\neip} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\neip}[1]{
+  (\ip{\nexists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\neiq} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\neiq}[1]{
+  (\iq{\nexists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\neir} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\neir}[1]{
+  (\ir{\nexists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\neiw} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\neiw}[1]{
+  (\iw{\nexists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\neiz} \marg{variable}
+%    \begin{macrocode}
+\newcommand{\neiz}[1]{
+  (\iz{\nexists #1})
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Infinite Sums and Integrals
+% \fi
+%
+% \begin{macro}{\sumk}
+%    \begin{macrocode}
+\ExplSyntaxOff
+\newcommand{\sumk}{
+  \sum\limits_{k \eq 1}^{n}
+}
+\ExplSyntaxOn
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\sumkz}
+%    \begin{macrocode}
+\ExplSyntaxOff
+\newcommand{\sumkz}{
+  \sum\limits_{k \eq 0}^{n}
+}
+\ExplSyntaxOn
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\sumn}
+%    \begin{macrocode}
+\ExplSyntaxOff
+\newcommand{\sumn}{
+  \sum\limits_{i \eq 1}^{n}
+}
+\ExplSyntaxOn
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\infint} \marg{integrand}
+%    \begin{macrocode}
+\ExplSyntaxOff
+\newcommand{\infint}[1]{
+  \int\limits_{0}^{\infty} #1 \, dt
+}
+\ExplSyntaxOn
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\inflim} \marg{block}
+%    \begin{macrocode}
+\ExplSyntaxOff
+\newcommand{\inflim}[1]{
+  \lim_{n \rightarrow \infty} \left( #1 \right) % chktex 37
+}
+\ExplSyntaxOn
+%    \end{macrocode}
+% \end{macro}
+%
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Telescoping Sums
+% \fi
+%
+% \begin{macro}{\ts} \marg{power}
+%    \begin{macrocode}
+\newcommand{\ts}[1]{
+  \IfNoValueT{#1}{
+    \errmessage{
+      The\space exponent\space of\space the\space telescoping\space series\space
+         is\space not\space provided.
+    }
+  }
+  1^{#1} \plus 2^{#1} \plus \ldots \plus n^{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ets} \marg{power}
+%    \begin{macrocode}
+\newcommand{\ets}[1]{
+  \IfNoValueT{#1}{
+    \errmessage{
+      The\space exponent\space of\space the\space extended\space
+        telescoping\space series\space is\space not\space provided.
+    }
+  }
+  1^{#1} \minus 0^{#1}
+  \plus 2^{#1} \minus 1^{#1}
+  \plus 3^{#1} \minus 2^{#1}
+  \plus \ldots
+  \plus n^{#1} \minus {(n \minus 1)}^{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Miscellaneous
+% \fi
+%
+% \begin{macro}{\nl}
+%    \begin{macrocode}
+\newcommand{\nl}{\par\medskip} % chktex 21
+%    \end{macrocode}
+% \end{macro}
+
+% \iffalse
+% endregion
+% \fi
+%
+% \iffalse
+% region Environments
+% \fi
+%
+% \begin{environment}{prob} \oarg{title}
+%    \begin{macrocode}
+\newenvironment{prob}[1][]{
+  \newpage
+  \stepcounter{prob}
+  \setcounter{subprob}{0}
+  \setcounter{subsubprob}{0}
+  \section*{Problem \arabic{prob}
+    \if\relax\detokenize{#1}\relax
+    \else{\normalfont\small(#1)}
+    \fi
+  }
+}{}
+%    \end{macrocode}
+% \end{environment}
+%
+%
+% \begin{environment}{subprob}
+%    \begin{macrocode}
+\newenvironment{subprob}{
+  \stepcounter{subprob}
+  \setcounter{subsubprob}{0}
+  \subsection*{\alph{subprob}}
+}{}
+%    \end{macrocode}
+% \end{environment}
+%
+%
+% \begin{environment}{subsubprob}
+%    \begin{macrocode}
+\newenvironment{subsubprob}{
+  \stepcounter{subsubprob}
+  \subsubsection*{\roman{subsubprob}}
+}{}
+%    \end{macrocode}
+% \end{environment}
+%
+%
+% \begin{environment}{sol}
+%    \begin{macrocode}
+\newenvironment{sol}{
+  \insoltrue
+  \begin{proof}
+  }{
+  \end{proof}
+  \insolfalse
+}
+%    \end{macrocode}
+% \end{environment}
+%
+%
+% \begin{environment}{indproof} \marg{base case} \marg{assumption}
+%   \marg{inductive case}
+%    \begin{macrocode}
+\NewEnviron{indproof}[3][]{
+  \IfNoValueT{#1}{
+    \errmessage{
+      Base\space case\space not\space provided.
+    }
+  }
+  \IfNoValueT{#2}{
+    \errmessage{
+      Inductive\space assumption\space not\space provided.
+    }
+  }
+  \IfNoValueT{#3}{
+    \errmessage{
+      Inductive\space case\space not\space provided.
+    }
+  }
+  \ifinsol
+    \errmessage{
+      The\space indproof\space environment\space cannot\space be\space
+      used\space inside\space the\space sol\space environment.
+    }
+  \fi
+
+  \begin{sol}
+    \nl
+    \textbf{Base{\space}Case:}
+    \par\medskip
+    #1
+    \nl
+    \textbf{Inductive{\space}Step:}
+    \nl
+    Assume{\space}#2
+    \nl
+    \BODY
+    \nl
+    \textbf{Conclusion:}
+    \nl
+    #3
+    \nl
+  \end{sol}
+}
+%    \end{macrocode}
+% \end{environment}
+%
+%
+% \begin{environment}{page} \oarg{title}
+%    \begin{macrocode}
+\newenvironment{page}[1][]{
+  \newpage
+  \IfNoValueF{#1}{
+    \textbf{#1}
+  }
+  \nl
+}{}
+%    \end{macrocode}
+% \end{environment}
+%
+% \iffalse
+% endregion
+% \fi
+%
+\ExplSyntaxOff
+%
+% \iffalse
+%</os31lib>
+% \fi
+%
+% \iffalse
+%<*letafix>
+% \fi
+\begin{align*}
+  \LETA{y}{x + 2} \\
+  y - x & = 2
+\end{align*}
+%
+% \iffalse
+%</letafix>
+% \fi
+%
+% \Finale
+%
+% \iffalse
+% Fix for the \texttt{LETA} macro, which does not render correctly in the
+% documentation. This is a temporary fix until the issue is resolved.
+% \fi
+%
+% \NewDocumentEnvironment{letafix}{s +O{} m}{}{
+%   \par
+%   \addvspace{\bigskipamount}
+%   \IfBooleanTF{#1}{
+%     \minipage{\linewidth}
+%     \captionsetup{type=dtxexamplefloat}
+%   }{
+%     \begin{dtxexamplefloat}
+%   }
+%   \hrule\medskip
+%   \caption{#3}
+%   \textcolor{DTXD@examplerulecolor}{\smallskip\hrule}
+%   \smallskip
+%   {\scriptsize\itshape\dtxexamplecodename}
+%   \VerbatimInput[tabsize=4]{leta_fix.tex}
+%   \unskip
+%   \textcolor{DTXD@examplerulecolor}{\hrule}
+%   \smallskip
+%   {\scriptsize\itshape\dtxexampleresultname}
+%   \ifstrempty{#2}{}{
+%     \itshape\small #2
+%   }
+%   \IfBooleanTF{#1}{
+%     \endminipage
+%   }{
+%     \end{dtxexamplefloat}
+%   }
+% }
+% \AfterEndEnvironment{letafix}{
+%   \begin{align*}
+%     \text{Let } y & = x + 2 \\
+%     y - x & = 2
+%   \end{align*}
+%   \medskip\hrule
+% }
+%
+% \newpage
+% \section{Examples}
+%
+% \begin{dtxexample}
+% {\env{Quantum Computing}\label{ex:Quantum Computing}}
+% \begin{align*}
+%   \bra{\psi} & = \bra{\psi_1} \otimes \bra{\psi_2} \\
+%   \ket{\psi} & = \ket{\psi_1} \otimes \ket{\psi_2} \\
+%   \braket{\psi}{\phi} & = \braket{\psi_1}{\phi_1}
+%     \cdot \braket{\psi_2}{\phi_2}
+% \end{align*}
+%
+% \cplot{10}{2}{3}{0.25}
+% \cplot{10}{-2}{-3}{0.25}
+% \end{dtxexample}
+%
+% \newpage
+% \begin{dtxexample}
+% {\env{Enclosed Blocks}\label{ex:Enclosed Blocks}}
+% \begin{align*}
+%  \bl{\frac{1 + 2 + 3}{2}} & = \bl{3} \\
+%  \br{\frac{1 + 2 + 3}{2}} & = \br{3} \\
+%  \pr{\frac{1 + 2 + 3}{2}} & = \pr{3} \\
+%  \abs{\frac{1 + 2 + 3}{2}} & = \abs{3}
+% \end{align*}
+% \end{dtxexample}
+%
+% \begin{dtxexample}
+% {\env{Comparison Operators}\label{ex:Comparison Operators}}
+% \begin{align*}
+%  1 \eq 1 & \\
+%  1 \gt 0 & \\
+%  0 \lt 1 & \\
+%  1 \minus 1 & = 0 \\
+%  1 \plus 1 & = 2
+% \end{align*}
+% \end{dtxexample}
+%
+% \newpage
+% \begin{dtxexample}
+% {\env{Number Sets}\label{ex:Number Sets}}
+% \begin{align*}
+%   \C & = \{ a + bi \mid a, b \in \R \} \\
+%   \N & = \{ 1, 2, 3, \ldots \} \\
+%   \Q & = \{ \frac{a}{b} \mid a, b \in \Z, b \neq 0 \} \\
+%   \R & = \{ x \mid x \text{ is a real number} \} \\
+%   \W & = \{ 0, 1, 2, \ldots \} \\
+%   \Z & = \{ \ldots, -2, -1, 0, 1, 2, \ldots \}
+% \end{align*}
+% \end{dtxexample}
+%
+% \iffalse
+% This example does not render correctly, but it is valid.
+% \fi
+% \begin{letafix}
+% {\env{Let Statements}\label{ex:Let Statements}}
+% \begin{align*}
+%   \text{Let } y & = x + 2 \\
+%   y - x & = 2
+% \end{align*}
+% \end{letafix}
+%
+% \newpage
+% \begin{dtxexample}
+% {\env{Set (Non-)Membership}\label{ex:Set (Non-)Membership}}
+% \[
+%   \begin{array}{|c|c|}
+%     \hline
+%     \inn{n} & \nin{n} \\
+%     \ip{n} & \nip{n} \\
+%     \iq{n} & \niq{n} \\
+%     \ir{n} & \nir{n} \\
+%     \iz{n} & \niz{n} \\
+%     \iw{n} & \niw{n} \\
+%     \hline
+%   \end{array}
+% \]
+% \end{dtxexample}
+%
+% \newpage
+% \begin{dtxexample}
+% {\env{Existential Quantifiers}\label{ex:Existential Quantifiers}}
+% \[
+%   \begin{array}{|c|c|}
+%     \hline
+%     \ein{n} & \nein{n} \\
+%     \eip{n} & \neip{n} \\
+%     \eiq{n} & \neiq{n} \\
+%     \eir{n} & \neir{n} \\
+%     \eiz{n} & \neiz{n} \\
+%     \eiw{n} & \neiw{n} \\
+%     \hline
+%   \end{array}
+% \]
+% \end{dtxexample}
+%
+% \begin{dtxexample}
+% {\env{Universal Quantifiers}\label{ex:Universal Quantifiers}}
+% \[
+%   \begin{array}{|c|c|}
+%     \hline
+%     \ain{n} & \nain{n} \\
+%     \aip{n} & \\
+%     \aiq{n} & \\
+%     \air{n} & \\
+%     \aiw{n} & \\
+%     \aiz{n} & \\
+%     \hline
+%   \end{array}
+% \]
+% \end{dtxexample}
+%
+% \begin{dtxexample}
+% {\env{Infinite Sums and Integrals}\label{ex:Infinite Sums and Integrals}}
+% \begin{align*}
+%   \sumk 1 & = n \\
+%   \sumkz 1 & = n + 1 \\
+%   \sumn 1 & = n \\
+%   \infint{e^{-t}} & = 1 \\
+%   \inflim{n} \frac{1}{n} & = 0
+% \end{align*}
+% \end{dtxexample}
+%
+% \begin{dtxexample}
+% {\env{Telescoping Series}\label{ex:Telescoping Series}}
+% \begin{align*}
+%   \sumk k^2 & = \ts{2} \\
+%   \sumk (k^2 - (k-1)^2) & = \ets{2}
+% \end{align*}
+% \end{dtxexample}
+%
+% \newpage
+% \begin{dtxexample}
+% {\env{Miscellaneous}\label{ex:Miscellaneous}}
+% Line 1
+% (Not Line 2)
+% \nl
+% Line 2
+% \nl
+% Line 3
+% \end{dtxexample}
+%
+% \begin{dtxexample}
+% {\env{Environemnts}\label{ex:Environemnts}}
+% \newpage
+% \begin{problem}[1.1]
+%   \nl
+%   Solve the following:
+%   \begin{subprob}
+%    Show by induction that \(n^2 + n\) is even for all \(n \in \N\).
+%
+%     \begin{subsubprob}
+%       Show the base case for \(n = 1\).
+%
+%       \begin{sol}
+%         \begin{align*}
+%           1^2 + 1 & = 1 + 1 \\
+%           & = 2 \\
+%           & \text{is even.}
+%         \end{align*}
+%       \end{sol}
+%     \end{subsubprob}
+%
+%     \begin{subsubprob}
+%       Show the full proof.
+%
+%       \begin{indproof}[\(n = 1\)]
+%         {\(n^2 + n\) is even for \(n \in \N\).}
+%         {Since \(n^2 + n\) is even by the inductive hypothesis,
+%           and \(2(n + 1)\) is even, the sum is even.}
+%         \begin{align*}
+%           (n + 1)^2 + (n + 1) & = n^2 + 2n + 1 + n + 1 \\
+%           & = n^2 + n + 2n + 2 \\
+%           & = (n^2 + n) + 2(n + 1)
+%         \end{align*}
+%       \end{indproof}
+%     \end{subsubprob}
+%   \end{subprob}
+% \end{problem}
+% \end{dtxexample}
+%
+\endinput
+%
