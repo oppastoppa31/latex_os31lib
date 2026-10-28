@@ -6,34 +6,48 @@
 %
 % \iffalse
 %<*driver>
-% \fi
-%
 \ProvidesFile{os31lib.dtx}
-\documentclass{ltxdoc}
+\documentclass[hyperindex=false]{ltxdoc}
+
+\usepackage{hypdoc}
 \usepackage{bookmark}
 \usepackage{dtxdescribe}
-\usepackage{os31lib}
 \usepackage{lmodern}
-
-\PassOptionsToPackage{old}{doc}
+\usepackage{makeidx}
+\usepackage{os31lib}
 
 \EnableCrossrefs
-\CodelineIndex
 \RecordChanges
+\PageIndex
 
 \begin{document}
   \DocInput{os31lib.dtx}
   \PrintChanges
   \PrintIndex
 \end{document}
-
-% \iffalse
 %</driver>
 % \fi
 %
+% \changes{v0.0.3}{2026/10/27}{Added Example Links}
 % \changes{v0.0.2}{2026/10/27}{Added CWL and JSON files}
 % \changes{v0.0.1}{2026/10/26}{Converted to DTX file}
 %
+% \DoNotIndex{\(,\),\[,\],\\,\{,\},\&,\%,\$,\#,\_,\^,\~,\,}
+% \DoNotIndex{
+%   \anchorX,\anchorY,\alph,\arabic,\BODY,
+%   \begin,\DeclarePairedDelimiterX,\def,\delimsize,
+%   \detokenize,\draw,\else,\end,\errmessage,
+%   \ExplSyntaxOff,\ExplSyntaxOn,\fi,\fill,
+%   \forall,\if,\ifdim,\ifinsol,\IfNoValueF,\IfNoValueT,
+%   \in,\infty,\insolfalse,\insoltrue,\int,
+%   \langle,\ldots,\left,\lim,\limits,\lvert,
+%   \mathbb,\mathopen,\medskip,\newcounter,\NewEnviron,
+%   \newif,\newpage,\newtheorem,\nexists,\node,
+%   \normalfont,\notin,\omega,\par,\range,\relax,
+%   \right,\rightarrow,\roman,\rvert,\section,
+%   \setcounter,\small,\space,\stepcounter,\sum,
+%   \text,\textbf,\theoremstyle,\vert,\ysign
+% }
 % \DoNotIndex{
 %   \newcommand,
 %   \newenvironment,
@@ -79,7 +93,7 @@
 %   \| \text{value} \rangle
 % \]
 %
-% \ItemDescribeArgument{value}
+% \ItemDescribeArgument[\bra, \ket]{value}
 % The value to be enclosed in the bra or ket vector.
 %
 % \ItemDescribeMacro{\braket}{\marg{left} \marg{right}}
@@ -89,10 +103,10 @@
 %   \langle \text{left} \| \text{right} \rangle
 % \]
 %
-% \ItemDescribeArgument{left}
+% \ItemDescribeArgument[\braket]{left}
 % The value to be enclosed in the bra vector.
 %
-% \ItemDescribeArgument{right}
+% \ItemDescribeArgument[\braket]{right}
 % The value to be enclosed in the ket vector.
 % \end{description}
 %
@@ -101,18 +115,23 @@
 %
 % Plots a complex number on the complex plane using TikZ.
 %
-% \ItemDescribeArgument{x-max}
+% \ItemDescribeArgument[\cplot]{x-max}
 % The maximum value of the x-axis.
 %
-% \ItemDescribeArgument{real}
+% \ItemDescribeArgument[\cplot]{real}
 % The real part of the complex number.
 %
-% \ItemDescribeArgument{imaginary}
+% \ItemDescribeArgument[\cplot]{imaginary}
 % The imaginary part of the complex number.
 %
-% \ItemDescribeArgument{scale}
+% \ItemDescribeArgument[\cplot]{scale}
 % The scale of the plot.
+%
 % \end{description}
+%
+%
+% See \hyperref[ex:Quantum Computing]{example\space \ref*{ex:Quantum Computing}}
+%   for a demonstration of the above macros.
 %
 % \newpage
 % \subsection{Enclosed Blocks}
@@ -134,9 +153,13 @@
 %
 % Creates a block of text enclosed in absolute value bars.
 %
-% \ItemDescribeArgument{block}
+% \ItemDescribeArgument[\bl, \br, \pr, \abs]{block}
 % The block of text to be enclosed.
 % \end{description}
+%
+%
+% See \hyperref[ex:Enclosed Blocks]{example\space \ref*{ex:Enclosed Blocks}} for
+%   a demonstration of the above macros.
 %
 % \subsection{Comparison Operators}
 %
@@ -161,6 +184,10 @@
 %
 % Represents the plus symbol: `\(+\)'.
 % \end{description}
+%
+%
+% See \hyperref[ex:Comparison Operators]{example\space \ref*{ex:Comparison Operators}}
+%   for a demonstration of the above macros.
 %
 % \newpage
 % \subsection{Number Sets}
@@ -191,6 +218,10 @@
 % Represents the set of integers: `\(\mathbb{Z}\)'.
 % \end{description}
 %
+%
+% See \hyperref[ex:Number Sets]{example\space \ref*{ex:Number Sets}} for a
+%   demonstration of the above macros.
+%
 % \subsection{Let Statements}
 %
 % \begin{description}
@@ -202,12 +233,15 @@
 %
 % Represents a let statement in math mode with alignment.
 %
-% \ItemDescribeArgument{variable}
+% \ItemDescribeArgument[\LET, \LETA]{variable}
 % The variable being defined in the let statement.
 %
-% \ItemDescribeArgument{value}
+% \ItemDescribeArgument[\LET, \LETA]{value}
 % The value being assigned to the variable in the let statement.
 % \end{description}
+%
+% See \hyperref[ex:Let Statements]{example\space \ref*{ex:Let Statements}} for a
+%   demonstration of the above macros.
 %
 % \newpage
 % \subsection{Set Membership}
@@ -255,9 +289,13 @@
 %   \text{variable} \in \mathbb{Z}
 % \]
 %
-% \ItemDescribeArgument{variable}
+% \ItemDescribeArgument[\inn, \ip, \iq, \ir, \iw, \iz]{variable}
 % The variable being checked for membership in the specified set.
 % \end{description}
+%
+%
+% See \hyperref[ex:Set (Non-)Membership]{example\space \ref*{ex:Set (Non-)Membership}}
+%   for a demonstration of the above macros.
 %
 % \newpage
 % \subsection{Set Non-Membership}
@@ -305,9 +343,13 @@
 %   \text{variable} \notin \mathbb{Z}
 % \]
 %
-% \ItemDescribeArgument{variable}
+% \ItemDescribeArgument[\nin, \nip, \niq, \nir, \niw, \niz]{variable}
 % The variable being checked for non-membership in the specified set.
 % \end{description}
+%
+%
+% See \hyperref[ex:Set (Non-)Membership]{example\space \ref*{ex:Set (Non-)Membership}}
+%   for a demonstration of the above macros.
 %
 % \newpage
 % \subsection{Existential Quantifiers}
@@ -360,9 +402,13 @@
 %   (\exists \text{ variable} \in \mathbb{Z})
 % \]
 %
-% \ItemDescribeArgument{variable}
+% \ItemDescribeArgument[\ein, \eip, \eiq, \eir, \eiw, \eiz]{variable}
 % The variable being quantified in the specified set.
 % \end{description}
+%
+%
+% See \hyperref[ex:Existential Quantifiers]{example\space \ref*{ex:Existential Quantifiers}}
+%   for a demonstration of the above macros.
 %
 % \newpage
 % \subsection{Existential Quantifiers for Non-Membership}
@@ -415,9 +461,13 @@
 %   (\exists \text{ variable} \notin \mathbb{Z})
 % \]
 %
-% \ItemDescribeArgument{variable}
+% \ItemDescribeArgument[\nein, \neip, \neiq, \neir, \neiw, \neiz]{variable}
 % The variable being quantified in the specified set.
 % \end{description}
+%
+%
+% See \hyperref[ex:Existential Quantifiers]{example\space \ref*{ex:Existential Quantifiers}}
+%   for a demonstration of the above macros.
 %
 % \newpage
 % \subsection{Universal Quantifiers}
@@ -475,10 +525,13 @@
 %   (\forall \text{ variable} \notin \mathbb{N})
 % \]
 %
-% \ItemDescribeArgument{variable}
+% \ItemDescribeArgument[\nain, \naiq, \nair, \naiw, \naiz]{variable}
 % The variable being quantified in the specified set.
 % \end{description}
 %
+%
+% See \hyperref[ex:Universal Quantifiers]{example\space \ref*{ex:Universal Quantifiers}}
+%   for a demonstration of the above macros.
 %
 % \newpage
 % \subsection{Infinite Sums and Integrals}
@@ -515,7 +568,7 @@
 %   \int_{0}^{\infty} \text{integrand} \, dt
 % \]
 %
-% \ItemDescribeArgument{integrand}
+% \ItemDescribeArgument[\infint]{integrand}
 % The integrand of the integral.
 % \end{description}
 %
@@ -527,9 +580,13 @@
 %   \lim_{n \to \infty}( \text{block} )
 % \]
 %
-% \ItemDescribeArgument{block}
+% \ItemDescribeArgument[\inflim]{block}
 % The block of text to be evaluated in the limit.
 % \end{description}
+%
+%
+% See \hyperref[ex:Infinite Sums and Integrals]{example\space \ref*{ex:Infinite Sums and Integrals}}
+%   for a demonstration of the above macros.
 %
 % \newpage
 % \subsection{Telescoping Series}
@@ -549,9 +606,13 @@
 %   1^{n} - 0^{n} + 2^{n} - 1^{n} + 3^{n} - 2^{n} + \ldots + n^{n} - (n-1)^{n}
 % \]
 %
-% \ItemDescribeArgument{n}
+% \ItemDescribeArgument[\ts, \ets]{n}
 % The exponent of the telescoping series.
 % \end{description}
+%
+%
+% See \hyperref[ex:Telescoping Series]{example\space \ref*{ex:Telescoping Series}}
+%   for a demonstration of the above macros.
 %
 % \subsection{Miscellaneous}
 %
@@ -560,6 +621,10 @@
 %
 % Inserts a new line in the document.
 % \end{description}
+%
+%
+% See \hyperref[ex:Miscellaneous]{example\space \ref*{ex:Miscellaneous}} for a
+%   demonstration of the above macros.
 %
 % \newpage
 % \subsection{Environments}
@@ -591,13 +656,13 @@
 %
 % Environment for formatting an inductive proof.
 %
-% \ItemDescribeArgument{base case}
+% \ItemDescribeArgument[\indproof]{base case}
 % The base case of the inductive proof.
 %
-% \ItemDescribeArgument{assumption}
+% \ItemDescribeArgument[\indproof]{assumption}
 % The assumption of the inductive proof.
 %
-% \ItemDescribeArgument{inductive case}
+% \ItemDescribeArgument[\indproof]{inductive case}
 % The inductive case of the inductive proof.
 %
 % \ItemDescribeEnv{page}{\oarg{title}}
@@ -608,6 +673,10 @@
 % \ItemDescribeArgument[\page]{title}
 % The optional title of the homework assignment page.
 % \end{description}
+%
+%
+% See \hyperref[ex:Environments]{example\space \ref*{ex:Environments}} for a
+%   demonstration of the above environments.
 %
 % \newpage
 % \section{Implementation}
@@ -679,12 +748,13 @@
         plane\space is\space not\space provided.}
     }
     \IfNoValueT{#2}{
-      \errmessage{The\space real\space part\space of\space the\space complex\space
-        number\space is\space not\space provided.}
+      \errmessage{The\space real\space part\space of\space the\space
+        complex \space number \space is\space not\space provided.}
     }
     \IfNoValueT{#3}{
-      \errmessage{The\space imaginary\space part\space of\space the\space
-         complex\space number\space is\space not\space provided.}
+      \errmessage{The\space imaginary\space part\space
+        of\space the\space complex\space number\space
+        is\space not\space provided.}
     }
     \IfNoValueT{#4}{
       \errmessage{The\space scale\space of\space the\space complex\space
@@ -1247,8 +1317,8 @@
 \newcommand{\ts}[1]{
   \IfNoValueT{#1}{
     \errmessage{
-      The\space exponent\space of\space the\space telescoping\space series\space
-         is\space not\space provided.
+      The\space exponent\space of\space the\space telescoping\space
+        series\space is\space not\space provided.
     }
   }
   1^{#1} \plus 2^{#1} \plus \ldots \plus n^{#1}
@@ -1370,7 +1440,7 @@
   \ifinsol
     \errmessage{
       The\space indproof\space environment\space cannot\space be\space
-      used\space inside\space the\space sol\space environment.
+        used\space inside\space the\space sol\space environment.
     }
   \fi
 
@@ -1616,7 +1686,7 @@
 % \end{dtxexample}
 %
 % \begin{dtxexample}
-% {\env{Environemnts}\label{ex:Environemnts}}
+% {\env{Environments}\label{ex:Environments}}
 % \newpage
 % \begin{problem}[1.1]
 %   \nl
