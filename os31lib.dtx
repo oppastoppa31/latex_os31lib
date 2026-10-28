@@ -28,6 +28,7 @@
 %</driver>
 % \fi
 %
+% \changes{v0.0.4}{2026/10/27}{Bundled CWL and JSON files with package}
 % \changes{v0.0.3}{2026/10/27}{Added Example Links}
 % \changes{v0.0.2}{2026/10/27}{Added CWL and JSON files}
 % \changes{v0.0.1}{2026/10/26}{Converted to DTX file}
@@ -1487,6 +1488,631 @@
 % \iffalse
 %</os31lib>
 % \fi
+%
+% \iffalse
+%<*os31libcwl>
+%% #include:amsmath
+%% #include:amssymb
+%% #include:amsthm
+%% #include:array
+%% #include:color
+%% #include:environ
+%% #include:etoolbox
+%% #include:float
+%% #include:graphics
+%% #include:graphicx
+%% #include:mathtools
+%% #include:subfigure
+%% #include:tikz
+
+%% # Quantum Computing
+%% \bra{value%formula}#m
+%% \ket{value%formula}#m
+%% \braket{left%formula}{right%formula}#m
+%% \cplot{x maximum}{real}{imaginary}{scale}#n
+
+%% # Enclosed Blocks
+%% \bl{block%formula}#m
+%% \br{block%formula}#m
+%% \pr{block%formula}#m
+%% \abs{block%formula}#m
+
+%% # Comparison Operators
+%% \eq#m
+%% \gt#m
+%% \lt#m
+%% \minus#m
+%% \plus#m
+
+%% # Number Sets
+%% \C#m
+%% \N#m
+%% \Q#m
+%% \R#m
+%% \W#m
+%% \Z#m
+
+%% # Let Statements
+%% \LET{variable name}{value}#m
+%% \LETA{variable name}{value}#T
+
+%% # Set Membership
+%% \inn{variable name}#m
+%% \ip{variable name}#m
+%% \iq{variable name}#m
+%% \ir{variable name}#m
+%% \iw{variable name}#m
+%% \iz{variable name}#m
+
+%% # Set Non-Membership
+%% \nin{variable name}#m
+%% \nip{variable name}#m
+%% \niq{variable name}#m
+%% \nir{variable name}#m
+%% \niw{variable name}#m
+%% \niz{variable name}#m
+
+%% # Existential Quantifiers
+%% \ein{variable name}#m
+%% \eip{variable name}#m
+%% \eiq{variable name}#m
+%% \eir{variable name}#m
+%% \eiw{variable name}#m
+%% \eiz{variable name}#m
+
+%% # Existential Quantifiers for Non-Membership
+%% \nein{variable name}#m
+%% \neip{variable name}#m
+%% \neiq{variable name}#m
+%% \neir{variable name}#m
+%% \neiw{variable name}#m
+%% \neiz{variable name}#m
+
+%% # Universal Quantifiers
+%% \ain{variable name}#m
+%% \aip{variable name}#m
+%% \aiq{variable name}#m
+%% \air{variable name}#m
+%% \aiw{variable name}#m
+%% \aiz{variable name}#m
+%% \nain{variable name}#m
+
+%% # Infinite Sums and Integrals
+%% \sumk#m
+%% \sumkz#m
+%% \sumn#m
+%% \infint{integrand%formula}#m
+%% \inflim{block%formula}#m
+
+%% # Telescoping Series
+%% \ts{power%formula}#m
+%% \ets{power%formula}#m
+
+%% # Miscellaneous
+%% \nl
+
+%% # Environments
+%% \begin{prob}[problem number]#beginEnv#prob
+%% \begin{subprob}#beginEnv#subprob#/prob
+%% \begin{subsubprob}#beginEnv#subsubprob#/subprob
+%% \begin{sol}#beginEnv#sol#/prob,subprob,subsubprob
+%% \begin{indproof}[base case]{inductive thesis%formula}{conclusion%formula}#beginEnv#indproof#/prob,subprob,subsubprob
+%% \begin{page}[page title%title]
+
+%% \end{prob}#endEnv#prob
+%% \end{subprob}#endEnv#subprob
+%% \end{subsubprob}#endEnv#subsubprob
+%% \end{sol}#endEnv#sol
+%% \end{indproof}#endEnv#indproof
+%% \end{page}#endEnv#page
+%</os31libcwl>
+% \fi
+%
+%
+% \iffalse
+%<*os31libjson>
+%% {
+%%   "args": [],
+%%   "deps": [
+%%     {
+%%       "name": "amsmath"
+%%     },
+%%     {
+%%       "name": "amssymb"
+%%     },
+%%     {
+%%       "name": "amsthm"
+%%     },
+%%     {
+%%       "name": "array"
+%%     },
+%%     {
+%%       "name": "color"
+%%     },
+%%     {
+%%       "name": "environ"
+%%     },
+%%     {
+%%       "name": "etoolbox"
+%%     },
+%%     {
+%%       "name": "float"
+%%     },
+%%     {
+%%       "name": "graphics"
+%%     },
+%%     {
+%%       "name": "graphicx"
+%%     },
+%%     {
+%%       "name": "mathtools"
+%%     },
+%%     {
+%%       "name": "subfigure"
+%%     },
+%%     {
+%%       "name": "tikz"
+%%     }
+%%   ],
+%%   "envs": [
+%%     {
+%%       "arg": {
+%%         "format": "[]",
+%%         "snippet": "[${1:problem number}]"
+%%       },
+%%       "name": "prob"
+%%     },
+%%     {
+%%       "name": "subprob"
+%%     },
+%%     {
+%%       "name": "subsubprob"
+%%     },
+%%     {
+%%       "name": "sol"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "[]{}{}",
+%%         "snippet": "[${3:base case}]{${1:inductive thesis%formula}}{${2:conclusion%formula}}"
+%%       },
+%%       "name": "indproof"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "[]",
+%%         "snippet": "[${1:page title%title}]"
+%%       },
+%%       "name": "page"
+%%     }
+%%   ],
+%%   "keys": {},
+%%   "macros": [
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "bra{${1:value%formula}}"
+%%       },
+%%       "detail": "Bra vector",
+%%       "name": "bra"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "ket{${1:value%formula}}"
+%%       },
+%%       "detail": "Ket vector",
+%%       "name": "ket"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}{}",
+%%         "snippet": "braket{${1:left%formula}}{${2:right%formula}}"
+%%       },
+%%       "detail": "Braket notation",
+%%       "name": "braket"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}{}{}{}",
+%%         "snippet": "cplot{${1:x maximum}}{${2:real}}{${3:imaginary}}{${4:scale}}"
+%%       },
+%%       "detail": "Complex plot",
+%%       "name": "cplot"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "bl{${1:block%formula}}"
+%%       },
+%%       "detail": "Braced block",
+%%       "name": "bl"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "br{${1:block%formula}}"
+%%       },
+%%       "detail": "Bracketed block",
+%%       "name": "br"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "pr{${1:block%formula}}"
+%%       },
+%%       "detail": "Parenthesized block",
+%%       "name": "pr"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "abs{${1:block%formula}}"
+%%       },
+%%       "detail": "Absolute value",
+%%       "name": "abs"
+%%     },
+%%     {
+%%       "detail": "=",
+%%       "name": "eq"
+%%     },
+%%     {
+%%       "detail": ">",
+%%       "name": "gt"
+%%     },
+%%     {
+%%       "detail": "<",
+%%       "name": "lt"
+%%     },
+%%     {
+%%       "detail": "-",
+%%       "name": "minus"
+%%     },
+%%     {
+%%       "detail": "+",
+%%       "name": "plus"
+%%     },
+%%     {
+%%       "detail": "Complex numbers",
+%%       "name": "C"
+%%     },
+%%     {
+%%       "detail": "Natural numbers",
+%%       "name": "N"
+%%     },
+%%     {
+%%       "detail": "Rational numbers",
+%%       "name": "Q"
+%%     },
+%%     {
+%%       "detail": "Real numbers",
+%%       "name": "R"
+%%     },
+%%     {
+%%       "detail": "Whole numbers",
+%%       "name": "W"
+%%     },
+%%     {
+%%       "detail": "Integers",
+%%       "name": "Z"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}{}",
+%%         "snippet": "LET{${1:variable name}}{${2:value}}"
+%%       },
+%%       "detail": "Let statement",
+%%       "name": "LET"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}{}",
+%%         "snippet": "LETA{${1:variable name}}{${2:value}}"
+%%       },
+%%       "detail": "Let statement (aligned)",
+%%       "name": "LETA"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "inn{${1:variable name}}"
+%%       },
+%%       "detail": "Within natural numbers",
+%%       "name": "inn"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "ip{${1:variable name}}"
+%%       },
+%%       "detail": "Within prime numbers",
+%%       "name": "ip"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "iq{${1:variable name}}"
+%%       },
+%%       "detail": "Within rational numbers",
+%%       "name": "iq"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "ir{${1:variable name}}"
+%%       },
+%%       "detail": "Within real numbers",
+%%       "name": "ir"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "iw{${1:variable name}}"
+%%       },
+%%       "detail": "Within whole numbers",
+%%       "name": "iw"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "iz{${1:variable name}}"
+%%       },
+%%       "detail": "Within integers",
+%%       "name": "iz"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "nin{${1:variable name}}"
+%%       },
+%%       "detail": "Not within natural numbers",
+%%       "name": "nin"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "nip{${1:variable name}}"
+%%       },
+%%       "detail": "Not within prime numbers",
+%%       "name": "nip"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "niq{${1:variable name}}"
+%%       },
+%%       "detail": "Not within rational numbers",
+%%       "name": "niq"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "nir{${1:variable name}}"
+%%       },
+%%       "detail": "Not within real numbers",
+%%       "name": "nir"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "niw{${1:variable name}}"
+%%       },
+%%       "detail": "Not within whole numbers",
+%%       "name": "niw"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "niz{${1:variable name}}"
+%%       },
+%%       "detail": "Not within integers",
+%%       "name": "niz"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "ein{${1:variable name}}"
+%%       },
+%%       "detail": "Exists within natural numbers",
+%%       "name": "ein"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "eip{${1:variable name}}"
+%%       },
+%%       "detail": "Exists within prime numbers",
+%%       "name": "eip"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "eiq{${1:variable name}}"
+%%       },
+%%       "detail": "Exists within rational numbers",
+%%       "name": "eiq"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "eir{${1:variable name}}"
+%%       },
+%%       "detail": "Exists within real numbers",
+%%       "name": "eir"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "eiw{${1:variable name}}"
+%%       },
+%%       "detail": "Exists within whole numbers",
+%%       "name": "eiw"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "eiz{${1:variable name}}"
+%%       },
+%%       "detail": "Exists within integers",
+%%       "name": "eiz"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "nein{${1:variable name}}"
+%%       },
+%%       "detail": "Does not exist within natural numbers",
+%%       "name": "nein"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "neip{${1:variable name}}"
+%%       },
+%%       "detail": "Does not exist within prime numbers",
+%%       "name": "neip"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "neiq{${1:variable name}}"
+%%       },
+%%       "detail": "Does not exist within rational numbers",
+%%       "name": "neiq"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "neir{${1:variable name}}"
+%%       },
+%%       "detail": "Does not exist within real numbers",
+%%       "name": "neir"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "neiw{${1:variable name}}"
+%%       },
+%%       "detail": "Does not exist within whole numbers",
+%%       "name": "neiw"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "neiz{${1:variable name}}"
+%%       },
+%%       "detail": "Does not exist within integers",
+%%       "name": "neiz"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "ain{${1:variable name}}"
+%%       },
+%%       "detail": "For all within natural numbers",
+%%       "name": "ain"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "aip{${1:variable name}}"
+%%       },
+%%       "detail": "For all within prime numbers",
+%%       "name": "aip"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "aiq{${1:variable name}}"
+%%       },
+%%       "detail": "For all within rational numbers",
+%%       "name": "aiq"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "air{${1:variable name}}"
+%%       },
+%%       "detail": "For all within real numbers",
+%%       "name": "air"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "aiw{${1:variable name}}"
+%%       },
+%%       "detail": "For all within whole numbers",
+%%       "name": "aiw"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "aiz{${1:variable name}}"
+%%       },
+%%       "detail": "For all within integers",
+%%       "name": "aiz"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "nain{${1:variable name}}"
+%%       },
+%%       "detail": "For all not within natural numbers",
+%%       "name": "nain"
+%%     },
+%%     {
+%%       "detail": "Summation from k = 1 to n",
+%%       "name": "sumk"
+%%     },
+%%     {
+%%       "detail": "Summation from k = 0 to n",
+%%       "name": "sumkz"
+%%     },
+%%     {
+%%       "detail": "Summation from i = 1 to n",
+%%       "name": "sumn"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "infint{${1:integrand%formula}}"
+%%       },
+%%       "detail": "Integral from 0 to infinity",
+%%       "name": "infint"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "inflim{${1:block%formula}}"
+%%       },
+%%       "detail": "Limit as x approaches infinity",
+%%       "name": "inflim"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "ts{${1:power%formula}}"
+%%       },
+%%       "detail": "Telescoping series",
+%%       "name": "ts"
+%%     },
+%%     {
+%%       "arg": {
+%%         "format": "{}",
+%%         "snippet": "ets{${1:power%formula}}"
+%%       },
+%%       "detail": "Expanded telescoping series",
+%%       "name": "ets"
+%%     },
+%%     {
+%%       "detail": "New line",
+%%       "name": "nl"
+%%     }
+%%   ]
+%% }
+%</os31libjson>
+% \fi
+%
 %
 % \iffalse
 %<*letafix>

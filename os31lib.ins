@@ -10,14 +10,17 @@
 \usepreamble\empty
 \usepostamble\empty
 \generate{\file{leta_fix.tex}{\from{os31lib.dtx}{letafix}}}
+\generate{\file{os31lib.cwl}{\from{os31lib.dtx}{os31libcwl}}}
+\generate{\file{os31lib.json}{\from{os31lib.dtx}{os31libjson}}}
 
 \preamble
 This is a generated file.
 Copyright (C) 2026 by Andrew Langan alangan444@icloud.com
 \endpreamble
 
-\generate{\file{os31lib.sty}{\from{os31lib.dtx}{os31lib}}}
-
+\generate{
+  \file{os31lib.sty}{\from{os31lib.dtx}{os31lib}}
+}
 
 \Msg{*********************************************************}
 \Msg{*}
